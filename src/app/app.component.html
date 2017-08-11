@@ -1,0 +1,109 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!--<div style="text-align:center">
+  <h1>
+    Welcome to {{title}}!
+  </h1>
+  <img width="300" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAyNTAgMjUwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyNTAgMjUwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbDojREQwMDMxO30NCgkuc3Qxe2ZpbGw6I0MzMDAyRjt9DQoJLnN0MntmaWxsOiNGRkZGRkY7fQ0KPC9zdHlsZT4NCjxnPg0KCTxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iMTI1LDMwIDEyNSwzMCAxMjUsMzAgMzEuOSw2My4yIDQ2LjEsMTg2LjMgMTI1LDIzMCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAJIi8+DQoJPHBvbHlnb24gY2xhc3M9InN0MSIgcG9pbnRzPSIxMjUsMzAgMTI1LDUyLjIgMTI1LDUyLjEgMTI1LDE1My40IDEyNSwxNTMuNCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAxMjUsMzAgCSIvPg0KCTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0xMjUsNTIuMUw2Ni44LDE4Mi42aDBoMjEuN2gwbDExLjctMjkuMmg0OS40bDExLjcsMjkuMmgwaDIxLjdoMEwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMQ0KCQlMMTI1LDUyLjF6IE0xNDIsMTM1LjRIMTA4bDE3LTQwLjlMMTQyLDEzNS40eiIvPg0KPC9nPg0KPC9zdmc+DQo=">
+</div>
+<h2>Here are some links to help you start: </h2>
+<ul>
+  <li>
+    <h2><a target="_blank" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" href="https://blog.angular.io//">Angular blog</a></h2>
+  </li>
+</ul>-->
+<div style="text-align: center">
+  <h1>
+    Welcome to {{title}}!
+  </h1>
+</div>
+<app-my-component></app-my-component>
+
+<hr/>
+
+<!--<app-product></app-product><br>
+<app-members></app-members><br>-->
+
+<a routerLink="/member">Member</a>
+<a routerLink="/product">Product</a>
+<a routerLink="/modal">ModalForm</a>
+<br>
+<router-outlet></router-outlet>
+
+<hr/>
+
+<div >
+  <h4>Data Binding</h4>
+  <p>
+    Name: {{obj.name}}
+  </p>
+  Printing AlphabetArrays Values:
+  <ul>
+    <li *ngFor = "let i of alphabetArrays">{{i}}</li>
+  </ul>
+  <p *ngIf="isTrue">True</p>
+
+  <p *ngIf="isTrueOrFalse; else firstTempalte">True</p>
+
+  <p *ngIf="isTrue;then secondTemplate else firstTempalte">True</p>
+
+
+
+  <ng-template #firstTempalte>This is 1st Template</ng-template>
+  <ng-template #secondTemplate>This is 2nd Template</ng-template>
+</div>
+
+<hr/>
+{{firstName | uppercase}} <br>
+<p>
+  {{day | date: 'shortDate'}}
+  <br>
+  {{day | date: 'longDate'}}
+  <br>
+  {{day | date: 'fullDate'}}
+  <br>
+  {{day | date}}
+  <br>
+  {{day }}
+</p>
+
+<p>
+  {{arrayNumbers | sort: 'descending'}}
+</p>
+
+<!--Template Driven Form-->
+ <div>
+   <form class="container" #userForm ="ngForm" (ngSubmit)="formSubmission(userForm.value)">
+     <input type="text" name="firstName" placeholder="Enter FirstName" ngModel/><br>
+     <input type="text" name="lastName" placeholder="Enter lastName" ngModel/><br>
+     <select name="languages" ngModel>
+       <option value = 'c++'>C++</option>
+       <option value = 'Java'>Java</option>
+       <option value = 'Angular'>Angular</option>
+     </select>
+     <br>
+     <br>
+     <input type="submit" value="submit">
+   </form>
+ </div>
+
+<!--Modal Driven Form-->
+<div>
+  <form class="container" [formGroup] = "form" (ngSubmit)="formSubmissionModal(form.value)">
+    <input type="text" name="firstName" placeholder="Enter FirstName" formControlName="firstName" /><br>
+    <input type="text" name="lastName" placeholder="Enter lastName" formControlName="lastName"/><br>
+    <select name="languages" formControlName="languages">
+      <option value = 'c++'>C++</option>
+      <option value = 'Java'>Java</option>
+      <option value = 'Angular'>Angular</option>
+    </select>
+    <br>
+    <br>
+    <input type="submit" [disabled]="!form.valid" value="submit">
+  </form>
+</div>
